@@ -11,8 +11,14 @@ Write-Host "`n=======================================================" -Foregrou
 Write-Host " Antigravity Universal Skills and Standards Installer " -ForegroundColor Cyan
 Write-Host "=======================================================`n" -ForegroundColor Cyan
 
-# Source paths
-$SourceRepo = "C:\Project\python-data-structures-and-algorithms"
+# Source paths (Self-contained: prefer local repo files, fallback to external repo)
+$SourceRepo = if (Test-Path (Join-Path $PSScriptRoot ".agents\rules\pdf_document_standards.md")) {
+    $PSScriptRoot
+} elseif (Test-Path "C:\Project\python-data-structures-and-algorithms\.agents\rules\pdf_document_standards.md") {
+    "C:\Project\python-data-structures-and-algorithms"
+} else {
+    $PSScriptRoot
+}
 $SourceRules = Join-Path $SourceRepo ".agents\rules\pdf_document_standards.md"
 $SourceSkillAcademic = Join-Path $SourceRepo ".agents\skills\academic-project-report"
 $SourceSkillPdf = Join-Path $SourceRepo ".agents\skills\pdf-worksheet-solver"

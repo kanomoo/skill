@@ -44,6 +44,22 @@
 .\setup-global-skills.ps1 -SkipGitPush
 ```
 
+### รันผ่าน Bash (Linux / macOS)
+
+```bash
+# ติดตั้งแบบมาตรฐานไปยังทุกโปรเจกต์ใน $HOME/Projects พร้อม Git Push
+./setup-global-skills.sh
+
+# กำหนดโฟลเดอร์ Root อื่นๆ
+./setup-global-skills.sh --projects-root "$HOME/Projects"
+
+# ติดตั้งเฉพาะ Global Profile (~/.gemini และ ~/.agents)
+./setup-global-skills.sh --global-only
+
+# ติดตั้งและ Commit แต่ไม่ต้องรัน Git Push
+./setup-global-skills.sh --skip-git-push
+```
+
 ---
 
 ## 👨‍💻 ผู้จัดทำ (Author)
